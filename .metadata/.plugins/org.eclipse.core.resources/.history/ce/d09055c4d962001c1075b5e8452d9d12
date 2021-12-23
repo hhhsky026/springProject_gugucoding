@@ -1,0 +1,29 @@
+package org.zerock.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.zerock.service.BoardService;
+
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
+
+@Controller
+@Log4j
+@RequestMapping("/board/*")
+@RequiredArgsConstructor
+public class BoardController {
+	
+	@NonNull
+	private final BoardService service;
+	
+	// 목록에 대한 처리
+	@GetMapping("/list")
+	public void list(Model model) {
+		
+		log.info("list");
+		model.addAttribute("list", service.getList());
+	}
+}

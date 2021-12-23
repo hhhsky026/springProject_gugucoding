@@ -1,0 +1,25 @@
+package org.zerock.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.zerock.domain.BoardVO;
+import org.zerock.mapper.BoardMapper;
+
+import lombok.AllArgsConstructor;
+import lombok.Setter;
+import lombok.extern.log4j.Log4j;
+
+@Log4j
+@Service // 비즈니스 영역을 담당하는 객체임을 표시
+@AllArgsConstructor // 모든 필드 값을 파라미터로 받는 생성자를 만듦
+public class BoardServiceImpl implements BoardService {
+	
+	@Setter(onMethod_ = @Autowired)// 주입이 필요한 쪽에 쓰기
+	private BoardMapper mapper;
+	
+	@Override
+	public void register(BoardVO board) {
+		// TODO Auto-generated method stub
+		
+	}
+}
